@@ -1,0 +1,29 @@
+{% if authors  %}
+
+{% comment %} <ul>
+  {% for author in authors %}
+    <li>{{ author.first_name }}</li>
+    
+  {% endfor %}
+</ul> {% endcomment %}
+
+  {% for author in authors %}
+  
+<article class="media author-section post m-2" style="border: 1px solid #d8d8d8; border-radius: 1px;">
+  <ul>
+  <img src="{{author.profile.profile_pic.url}}"  class="rounded-circle article-img">
+  <div class="media-body">
+    {% comment %} <div class="article-metadata"> {% endcomment %}
+      <li><a class="mr-2" href="#">{{ author.username }}</a></li>
+    </div>
+  
+
+  </ul>
+
+</article>
+
+    {% endfor %}
+ 
+{% else %}
+<p>No editors found.</p>
+{% endif %}

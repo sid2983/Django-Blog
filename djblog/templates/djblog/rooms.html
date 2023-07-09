@@ -1,0 +1,9 @@
+
+    <ul>
+        {% for room in rooms %}
+        
+          {% comment %} <li>Hello</li> {% endcomment %}
+          <li><a href="{% url 'djblog:djblog-post-by-room' pk=room.pk  %}">{{room.name}}</a></li>
+          
+        {% endfor %}
+      </ul>

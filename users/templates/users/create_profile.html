@@ -1,0 +1,21 @@
+{% extends 'djblog/base.html' %}
+{% load crispy_forms_tags %}
+
+{% block content %}
+
+<div class='content-section'>
+    <div class="media acc-sec">
+        <img src="{{user.profile.profile_pic.url}}"  class="rounded-circle account-img">
+        <div class="media-body">
+            <h2 class="account-heading">{{ user.username}}</h2>
+            <p class="text-secondary">{{ user.email }}</p>
+        </div>
+    </div>
+</div>
+
+<form action="" method="POST" enctype="multipart/form-data">
+    {{form | crispy}}
+    {% csrf_token %}
+    <input type="submit">
+</form>
+{% endblock %}

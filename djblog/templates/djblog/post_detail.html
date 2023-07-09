@@ -1,0 +1,24 @@
+{% extends 'djblog/base.html' %}
+
+{% block content %}
+
+    <article class="media content-section post">
+      <img src="{{post.author.profile.profile_pic.url}}"  class="rounded-circle article-img">
+
+        <div class="media-body">
+          <div class="article-metadata">
+            <a class="mr-2" href="#">{{ object.author }}</a>
+            <small class="text-muted">{{ object.date_posted | date:"F d, Y" }}</small>
+            <div class="m-2">
+            {% if object.author == user %}
+            <a class="btn btn-secondary btn-sm mt-1 mb-1"  href="{% url 'djblog:djblog-post-update' object.id %}">Update</a>
+            <a class="btn btn-danger btn-sm mt-1 mb-1"  href="{% url 'djblog:djblog-post-delete' object.id %}">Delete</a>
+
+            {% endif %}
+          </div>
+          </div>
+          <h2 class="article-title">{{ object.title }}</h2>
+          <p class="article-content">{{ object.content|safe }}</p>
+        </div>
+      </article>
+{% endblock content %}

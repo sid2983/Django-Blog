@@ -1,0 +1,9 @@
+{
+  "scripts": {
+    "dev":"tailwindcss  -i djblog/static/djblog/tw/tailwind-input.css -o djblog/static/djblog/css/output.css --watch"
+  }
+,
+  "devDependencies": {
+    "tailwindcss": "^3.3.2"
+  }
+}
